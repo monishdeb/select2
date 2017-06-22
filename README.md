@@ -1,9 +1,8 @@
-Select2
+selectWoo
 =======
-[![Build Status][travis-ci-image]][travis-ci-status]
+selectWoo is a fork of [select2](https://github.com/select2/select2) with improved accessibility.
 
-Select2 is a jQuery-based replacement for select boxes. It supports searching,
-remote data sets, and pagination of results.
+selectWoo is also optimized for WordPress plugin development and is designed to be able to run alongside versions of select2 that other plugins may be using.
 
 To get started, checkout examples and documentation at
 https://select2.org/

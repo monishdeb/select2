@@ -77,16 +77,6 @@ module.exports = function (grunt) {
         ],
         dest: 'dist/js/select2.js'
       },
-      'dist.woo': {
-        options: {
-          banner: grunt.file.read('src/js/wrapper.start.js'),
-        },
-        src: [
-          'dist/js/selectWoo.js',
-          'src/js/wrapper.end.js'
-        ],
-        dest: 'dist/js/selectWoo.js'
-      },
       'dist.full': {
         options: {
           banner: grunt.file.read('src/js/wrapper.start.js'),
@@ -97,16 +87,6 @@ module.exports = function (grunt) {
         ],
         dest: 'dist/js/select2.full.js'
       },
-      'dist.full.woo': {
-        options: {
-          banner: grunt.file.read('src/js/wrapper.start.js'),
-        },
-        src: [
-          'dist/js/selectWoo.full.js',
-          'src/js/wrapper.end.js'
-        ],
-        dest: 'dist/js/selectWoo.full.js'
-      }
     },
 
     connect: {
@@ -127,13 +107,6 @@ module.exports = function (grunt) {
           banner: minifiedBanner
         }
       },
-      'dist.woo': {
-        src: 'dist/js/selectWoo.js',
-        dest: 'dist/js/selectWoo.min.js',
-        options: {
-          banner: minifiedBanner
-        }
-      },
       'dist.full': {
         src: 'dist/js/select2.full.js',
         dest: 'dist/js/select2.full.min.js',
@@ -141,13 +114,6 @@ module.exports = function (grunt) {
           banner: minifiedBanner
         }
       },
-      'dist.full.woo': {
-        src: 'dist/js/selectWoo.full.js',
-        dest: 'dist/js/selectWoo.full.min.js',
-        options: {
-          banner: minifiedBanner
-        }
-      }
     },
 
     qunit: {
@@ -251,10 +217,6 @@ module.exports = function (grunt) {
           'dist/css/select2.min.css': [
             'src/scss/core.scss',
             'src/scss/theme/default/layout.css'
-          ],
-          'dist/css/selectWoo.min.css': [
-            'src/scss/core.scss',
-            'src/scss/theme/default/layout.css'
           ]
         }
       },
@@ -264,10 +226,6 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/css/select2.css': [
-            'src/scss/core.scss',
-            'src/scss/theme/default/layout.css'
-          ],
-          'dist/css/selectWoo.css': [
             'src/scss/core.scss',
             'src/scss/theme/default/layout.css'
           ]
@@ -308,50 +266,12 @@ module.exports = function (grunt) {
           }
         }
       },
-      'dist.woo': {
-        options: {
-          baseUrl: 'src/js',
-          optimize: 'none',
-          name: 'select2/core',
-          out: 'dist/js/selectWoo.js',
-          include: includes,
-          namespace: 'S2',
-          paths: {
-            'almond': require.resolve('almond').slice(0, -3),
-            'jquery': 'jquery.shim',
-            'jquery-mousewheel': 'jquery.mousewheel.shim'
-          },
-          wrap: {
-            startFile: 'src/js/banner.start.js',
-            endFile: 'src/js/banner.end.js'
-          }
-        }
-      },
       'dist.full': {
         options: {
           baseUrl: 'src/js',
           optimize: 'none',
           name: 'select2/core',
           out: 'dist/js/select2.full.js',
-          include: fullIncludes,
-          namespace: 'S2',
-          paths: {
-            'almond': require.resolve('almond').slice(0, -3),
-            'jquery': 'jquery.shim',
-            'jquery-mousewheel': require.resolve('jquery-mousewheel').slice(0, -3)
-          },
-          wrap: {
-            startFile: 'src/js/banner.start.js',
-            endFile: 'src/js/banner.end.js'
-          }
-        }
-      },
-      'dist.full.woo': {
-        options: {
-          baseUrl: 'src/js',
-          optimize: 'none',
-          name: 'select2/core',
-          out: 'dist/js/selectWoo.full.js',
           include: fullIncludes,
           namespace: 'S2',
           paths: {
@@ -422,8 +342,8 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['compile', 'test', 'minify']);
 
   grunt.registerTask('compile', [
-    'requirejs:dist', 'requirejs:dist.woo', 'requirejs:dist.full', 'requirejs:dist.full.woo', 'requirejs:i18n',
-    'concat:dist', 'concat:dist.woo', 'concat:dist.full', 'concat:dist.full.woo',
+    'requirejs:dist', 'requirejs:dist.full', 'requirejs:i18n',
+    'concat:dist', 'concat:dist.full',
     'sass:dev'
   ]);
   grunt.registerTask('minify', ['uglify', 'sass:dist']);

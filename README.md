@@ -1,8 +1,6 @@
-selectWoo
+Select2
 =======
-selectWoo is a fork of [select2](https://github.com/select2/select2) with improved accessibility.
-
-selectWoo is also optimized for WordPress plugin development and is designed to be able to run alongside versions of select2 that other plugins may be using.
+This is a fork of [select2](https://github.com/select2/select2) with improved accessibility after cherry-picking commits from [selectWoo](https://github.com/woocommerce/selectWoo) library.
 
 To get started, checkout examples and documentation at
 https://select2.org/

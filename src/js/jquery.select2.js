@@ -49,8 +49,8 @@ define([
     };
   }
 
-  if ($.fn.selectWoo.defaults == null) {
-    $.fn.selectWoo.defaults = Defaults;
+  if ($.fn.select2.defaults == null) {
+    $.fn.select2.defaults = Defaults;
   }
 
   return Select2;
